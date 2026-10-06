@@ -15,15 +15,15 @@ main > p:nth-of-type(1) { color:var(--muted); }
 </style></head>
 <body><main>
 <h1>Auralis Privacy Policy</h1>
-<p><strong>Effective:</strong> September 30, 2026 <strong>App:</strong> Auralis (Auralis: Sound &amp; Presence), iOS <strong>Developer:</strong> Aaron Monick (&quot;we&quot;, &quot;us&quot;) <strong>Contact:</strong> amonick12@gmail.com</p>
+<p><strong>Effective:</strong> October 6, 2026 <strong>App:</strong> Auralis (Auralis: Sound &amp; Presence), iOS <strong>Developer:</strong> Aaron Monick (&quot;we&quot;, &quot;us&quot;) <strong>Contact:</strong> amonick12@gmail.com</p>
 <p>Auralis is an adaptive audio companion. You speak, music plays, and Auralis listens and responds when it would help. We designed it so that <strong>your words, sessions and journal stay on your iPhone</strong>.</p>
 <h2>The short version</h2>
 <ul>
 <li><strong>No account.</strong> Auralis doesn&#x27;t ask who you are.
 <li><strong>No analytics, advertising or tracking.</strong> We don&#x27;t collect usage data and don&#x27;t use third-party SDKs.
-<li><strong>No audio is ever recorded or stored.</strong> The microphone is used only for live, on-device transcription during a session.
+<li><strong>No audio is ever recorded, stored or sent.</strong> The microphone is used for live, on-device transcription during a session, and, if you keep music from another app playing, to recognize the song.
 <li><strong>Your sessions and journal are stored only on your device.</strong>
-<li><strong>Your words leave your device only if you choose an external AI provider</strong>, and then only to that provider, to generate a reply.
+<li><strong>Your words leave your device only if you add your own key for an external AI provider</strong>, and then only to that provider, for the feature you&#x27;re using.
 </ul>
 <h2>What Auralis stores on your device</h2>
 <p>Stored locally on your iPhone, not on our servers (we have none):</p>
@@ -32,27 +32,39 @@ main > p:nth-of-type(1) { color:var(--muted); }
 <li><strong>Journal:</strong> entries you write, import or add after sessions.
 <li><strong>Preferences:</strong> settings such as voice, voice boost and talkativeness.
 <li><strong>Music preferences:</strong> which kinds of music you skipped or listened through, used to choose better music.
-<li><strong>Your AI API key, if you add one:</strong> stored only in the iOS <strong>Keychain</strong>, never in the app&#x27;s database or logs.
+<li><strong>Journal images:</strong> pictures you ask Auralis to make for an entry.
+<li><strong>Recognized songs</strong> you choose to save.
+<li><strong>Spoken audio cache:</strong> if you use an OpenAI voice, the generated speech is kept on your device so the same line isn&#x27;t generated twice.
+<li><strong>Technical logs:</strong> audio, voice and song-recognition states (for example, &quot;music resumed&quot;), kept on your device. They never contain what was said.
+<li><strong>Your AI API keys, if you add any:</strong> stored only in the iOS <strong>Keychain</strong>, never in the app&#x27;s database or logs.
 </ul>
 <p>You can delete individual sessions (History) and journal entries (Journal), delete all journal entries (Settings → Journal), or delete everything by deleting the app. Like other apps, this data may be included in your own iCloud or computer backup of your iPhone, under Apple&#x27;s terms.</p>
 <h2>Microphone and speech</h2>
 <p>When a session is running and listening is on, Auralis uses the microphone to transcribe your speech <strong>on your device</strong>, using Apple&#x27;s speech recognition. Audio is processed in memory and discarded. It is never recorded, saved or sent anywhere. You can turn listening off at any time during a session.</p>
+<h2>Song recognition</h2>
+<p>If you keep music from another app playing during a session (for example YouTube or Spotify), Auralis can recognize the song using Apple&#x27;s <strong>ShazamKit</strong>. A few seconds of microphone audio are turned <strong>on your device</strong> into a signature (a fingerprint of the music that can&#x27;t be turned back into sound or speech), and only that signature is sent to Apple&#x27;s Shazam service to find the song. Auralis doesn&#x27;t listen for songs while it is speaking. Recognition is handled by Apple under Apple&#x27;s privacy policy.</p>
 <h2>Artificial intelligence</h2>
 <p>Auralis generates replies in one of these ways, depending on your settings:</p>
 <ol>
 <li><strong>On-device (Apple Intelligence):</strong> on supported iPhones, replies are generated on your device. Nothing is sent anywhere.
 <li><strong>Private Cloud Compute (optional, off by default):</strong> if you enable it, requests may be processed by Apple&#x27;s Private Cloud Compute, which Apple designed so your data is not retained or accessible to Apple.
-<li><strong>External AI provider (optional):</strong> if you add your own API key, the text of the current conversation, and, in Journaling and Custom sessions, a few passages from your past sessions or journal that are relevant to what you just said, is sent to that provider (currently Anthropic) to generate a reply. When you ask a question about your past sessions (in History, or by voice), the question and the few passages that match it are sent to write the answer. The title and artist of the song playing are included so replies can refer to it. In the Journal, features you start yourself send the entries they work on: reflecting on an entry sends that entry and up to three earlier ones; a symbol&#x27;s thread sends the entries that mention it; Looking Back sends every entry in the span you chose (a week, a month or three months); adding a session to your journal sends its notes to be rewritten in your voice. To tell dreams from other entries, Auralis also sends the opening lines of each entry once. That data is handled under the provider&#x27;s own terms and privacy policy. Auralis never sends audio, and never sends anything you didn&#x27;t write or say.
+<li><strong>External AI provider (optional):</strong> if you add your own API key for a provider (Anthropic, OpenAI, Google Gemini, or a server you set up), the text of the current conversation, and, in Journaling and Custom sessions, a few passages from your past sessions or journal that are relevant to what you just said, is sent to that provider to generate a reply. If you&#x27;ve added keys for more than one and the one you chose is unavailable, Auralis may use another one you added. When you ask a question about your past sessions (in History, or by voice), the question and the few passages that match it are sent to write the answer. The title and artist of the song playing are included so replies can refer to it. In the Journal, features you start yourself send the entries they work on: reflecting on an entry sends that entry and up to three earlier ones; a symbol&#x27;s thread sends the entries that mention it; Looking Back sends every entry in the span you chose (a week, a month or three months); adding a session to your journal sends its notes to be rewritten in your voice. To tell dreams from other entries, Auralis also sends the opening lines of each entry once. That data is handled under the provider&#x27;s own terms and privacy policy. Auralis never sends audio.
 <li><strong>Built-in responses:</strong> without any of the above, Auralis uses fixed, on-device responses and sends nothing.
 </ol>
+<h2>OpenAI voices and journal images (optional)</h2>
+<p>If you add an OpenAI API key and choose an OpenAI voice, the text Auralis is about to speak is sent to OpenAI to turn it into speech: Auralis&#x27;s own replies and guidance, and any text you ask it to read aloud, such as a journal entry or text you share to Auralis from another app. Your voice is never sent.</p>
+<p>If you ask Auralis to make an image for a journal entry, the entry&#x27;s text is sent to your AI provider (above) to describe a scene, and only that scene description is sent to OpenAI to paint the picture. The image is stored with the entry on your device.</p>
+<p>Both are handled under OpenAI&#x27;s terms and privacy policy.</p>
+<h2>Beta feedback (TestFlight only)</h2>
+<p>In test builds, Auralis may ask after a session how it went. If you choose to send feedback, it goes by email from your own Mail app (or the share sheet), and you see it before it&#x27;s sent. It contains your note, the app build and device model, and, only if you leave <strong>Include the transcript and logs</strong> on, that session&#x27;s setup, transcript, timeline and technical logs. We use it only to fix problems, and delete it on request. The App Store version doesn&#x27;t ask.</p>
 <h2>Apple Health (optional, off by default)</h2>
-<p>If you turn on <strong>Log to Apple Health</strong> in Settings, Auralis writes two kinds of entries to the Health app on your iPhone: <strong>Mindful Minutes</strong> for finished Meditation, Breathwork, Sleep, Shamanic Journey and Album Journey sessions, and <strong>State of Mind</strong> from your arriving and leaving check-ins. Auralis never reads any Health data, and nothing about Health leaves your device. You can revoke or change this at any time in the Health app or in Auralis&#x27;s settings.</p>
-<h2>Apple Music</h2>
-<p>If you connect Apple Music, Auralis uses Apple&#x27;s MusicKit to play music and read your library or playlists for soundtrack choices. Playback and your Apple Music account are handled by Apple under Apple&#x27;s privacy policy. Auralis does not share your sessions or journal with Apple Music.</p>
+<p>If you turn on <strong>Log to Apple Health</strong> in Settings, Auralis writes two kinds of entries to the Health app on your iPhone: <strong>Mindful Minutes</strong> for finished Meditation, Breathwork, Sleep, Shamanic Journey, Album Journey and Inquiry sessions, and <strong>State of Mind</strong> from your arriving and leaving check-ins. Auralis never reads any Health data, and nothing about Health leaves your device. You can revoke or change this at any time in the Health app or in Auralis&#x27;s settings.</p>
+<h2>Music</h2>
+<p>If you connect Apple Music, Auralis uses Apple&#x27;s MusicKit to play music and read your library or playlists for soundtrack choices. Playback and your Apple Music account are handled by Apple under Apple&#x27;s privacy policy. Auralis does not share your sessions or journal with Apple Music. If you keep music from another app playing, Auralis reads only what the system reports as playing (title and artist), and can pause or resume it when you ask.</p>
 <h2>Safety features</h2>
 <p>In some modes, Auralis can offer to call a trusted contact you entered, or emergency services. <strong>Nothing is ever dialed or sent without you tapping to place the call</strong>, and your trusted contact is stored only on your device. Auralis is not a medical device and does not provide medical advice.</p>
 <h2>Children</h2>
-<p>Auralis is not directed to children under 13, and we don&#x27;t knowingly collect information from anyone. Since we don&#x27;t collect personal data, there is nothing for us to retain.</p>
+<p>Auralis is not directed to children under 13. We don&#x27;t collect personal data, apart from beta feedback a tester chooses to send.</p>
 <h2>Changes</h2>
 <p>If this policy changes, we&#x27;ll update this page and the effective date above.</p>
 <h2>Contact</h2>
